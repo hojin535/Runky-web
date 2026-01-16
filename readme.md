@@ -34,31 +34,39 @@
 
 ### 러닝 경로 시각화 화면
 > 단일 러닝 세션 기준 GPS 경로를 지도 위에 시각화한 화면
-
-![Running Map](./docs/images/러닝%20지도화면.png)
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <b>러닝 경로 시각화</b><br/>
+      <sub>단일 GPS 경로 시각화</sub>
+      <br />
+      <img src="./docs/images/러닝%20지도화면.png" width="280" />
+    </td>
+    <td align="center" width="50%">
+      <b>러닝 통계 대시보드</b><br/>
+      <sub>거리, 시간, 페이스 정보</sub>
+      <br />
+      <img src="./docs/images/러닝%20결과.png" width="280" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <b>러닝 기록 캘린더</b><br/>
+      <sub>월간/주간 기록 조회</sub>
+      <br />
+      <img src="./docs/images/캘린더.png" width="280" />
+    </td>
+    <td align="center" width="50%">
+      <b>가챠 보상 UI</b><br/>
+      <sub>러닝 완료 보상 획득</sub>
+      <br />
+      <img src="./docs/images/뽑기.png" width="280" />
+    </td>
+  </tr>
+</table>
 
 ---
 
-### 러닝 통계 대시보드
-> 거리, 시간, 페이스 정보를 카드 및 차트 형태로 표현
-
-![Run Stats](./docs/images/러닝%20결과.png)
-
----
-
-### 러닝 기록 캘린더
-> 월간/주간 뷰 전환이 가능한 기록 조회 캘린더
-
-![Calendar UI](./docs/images/캘린더.png)
-
----
-
-### 가챠 보상 UI
-> 러닝 완료 후 보상을 획득하는 인터랙션 UI
-
-![Gacha UI](./docs/images/뽑기.png)
-
----
 
 ## Technical Challenges & Solutions
 
