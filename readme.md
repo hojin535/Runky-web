@@ -32,36 +32,31 @@
 
 ## 📸 Screenshots (WebView UI)
 
-<table width="100%">
-  <tr>
-    <td align="center" width="50%">
-      <b>러닝 경로 시각화</b><br/>
-      <sub>단일 GPS 경로 시각화</sub>
-      <br />
-      <img src="./docs/images/러닝%20지도화면.png" width="280" />
-    </td>
-    <td align="center" width="50%">
-      <b>러닝 통계 대시보드</b><br/>
-      <sub>거리, 시간, 페이스 정보</sub>
-      <br />
-      <img src="./docs/images/러닝%20결과.png" width="280" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <b>러닝 기록 캘린더</b><br/>
-      <sub>월간/주간 기록 조회</sub>
-      <br />
-      <img src="./docs/images/캘린더.png" width="280" />
-    </td>
-    <td align="center" width="50%">
-      <b>가챠 보상 UI</b><br/>
-      <sub>러닝 완료 보상 획득</sub>
-      <br />
-      <img src="./docs/images/뽑기.png" width="280" />
-    </td>
-  </tr>
-</table>
+### 러닝 경로 시각화 화면
+> 단일 러닝 세션 기준 GPS 경로를 지도 위에 시각화한 화면
+
+![Running Map](./docs/images/러닝%20지도화면.png)
+
+---
+
+### 러닝 통계 대시보드
+> 거리, 시간, 페이스 정보를 카드 및 차트 형태로 표현
+
+![Run Stats](./docs/images/러닝%20결과.png)
+
+---
+
+### 러닝 기록 캘린더
+> 월간/주간 뷰 전환이 가능한 기록 조회 캘린더
+
+![Calendar UI](./docs/images/캘린더.png)
+
+---
+
+### 가챠 보상 UI
+> 러닝 완료 후 보상을 획득하는 인터랙션 UI
+
+![Gacha UI](./docs/images/뽑기.png)
 
 ---
 
@@ -107,32 +102,8 @@ JSON.stringify({ module, data })
 
 - 네비게이션 및 데이터 동기화 안정성 확보
 
-### 2. WebView 환경에서의 성능 최적화
 
-**문제**: WebView 환경의 제한된 리소스에서 지도와 애니메이션이 동시에 구동될 때 성능 저하
-
-
-
-**해결 방안**:
-
-- Next.js 15의 App Router 활용
-- Turbopack 기반의 개발 환경 구성
-- Next.js Image 컴포넌트를 활용한 리소스 최적화 (S3 호스팅 사용자 배지 이미지 등)
-- `@svgr/webpack`을 활용한 SVG 아이콘 컴포넌트화
-- Framer Motion(캘린더) 및 CSS Transform(러닝 화면)을 활용한 제스처 인터랙션
-
-
-
-
-
-**성과**:
-
-- 초기 로딩 체감 성능 개선
-- 부드러운 UI 인터랙션 구현 (60fps 유지)
-
-
-
-### 3. 상태 관리 전략
+### 2. 상태 관리 전략
 
 **문제**: 서버 상태, 클라이언트 전역 상태, 로컬 상태가 혼재되어 복잡도 증가
 
