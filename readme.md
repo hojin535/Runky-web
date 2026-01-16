@@ -1,14 +1,26 @@
-# 실시간 그룹 러닝 웹 서비스 (Frontend)
+# 🏃‍♂️ Runky : 크루 시스템으로 동기부여를 강화한 실시간 그룹 러닝 서비스
 
-실시간 러닝 데이터를 기반으로 
-러닝 경로·통계·보상 요소를 시각적으로 제공하는 **WebView 기반 러닝 서비스의 프론트엔드**입니다.
+> **"혼자가 아닌 함께 달리는 즐거움, 실시간 데이터 동기화로 꾸준한 러닝 경험을 설계합니다."**
 
-모바일 앱(WebView) 환경을 고려하여  
-실시간 데이터 동기화와 UI 성능 최적화에 중점을 두었습니다.
+**팀 프로젝트 (Frontend 2, Backend 2, Designer 2)**  
 
 ---
 
-## Tech Stack
+## 역할 (Frontend Developer)
+- React Native 앱의 **WebView 기반 웹 프론트엔드 UI 개발**
+  - 온보딩, 메인, 러닝, 대시보드 화면 구현
+
+- WebView 기반 러닝 UI 전반 설계 및 구현
+  - Google Maps Polyline 기반 러닝 경로 시각화
+  - 거리·시간·페이스 통계 대시보드 구현
+
+- 백엔드와 실시간 러닝 데이터 포맷·전송 주기 협의
+- 디자이너와 인터랙션·애니메이션 단위 협업
+  - 보상 UI 및 캘린더 드래그 인터랙션 구현
+
+---
+
+## 기술 스택
 
 - Next.js (App Router)
 - TypeScript
@@ -20,17 +32,19 @@
 
 ---
 
-## Key Features
+## 주요 기능
 
-- 단일 러닝 세션 기준 GPS 경로 시각화 UI 구현 (Polyline 기반)
-- 러닝 거리·시간·페이스 통계 대시보드 (스와이프 화면 전환)
-- 가챠 기반 보상 UI 및 애니메이션
-- 러닝 기록 캘린더 (Framer Motion 드래그 인터랙션)
-- 모바일 앱(WebView) 환경 대응 UI
+- GPS 경로 시각화: Google Maps Polyline을 활용한 실시간 러닝 경로 렌더링
+
+- 대시보드: 거리·시간·페이스 등 주요 지표의 시각화 및 스와이프 인터랙션
+
+- 인터랙티브 UI: 가챠(보상) 애니메이션 및 캘린더 드래그 인터랙션
+
+- WebView 최적화: 모바일 앱 환경에 대응하는 반응형 UI 및 브릿지 통신 구조 구축
 
 ---
 
-## 📸 Screenshots (WebView UI)
+## 주요 화면
 
 ### 러닝 경로 시각화 화면
 > 단일 러닝 세션 기준 GPS 경로를 지도 위에 시각화한 화면
@@ -68,9 +82,20 @@
 ---
 
 
-## Technical Challenges & Solutions
+## 기술적 도전사항 & 해결책
 
-### 1. 앱-웹 간 통신 최적화
+### 1. WebView 환경 차트 렌더링 이슈 대응
+- WebView 환경에서 ApexCharts 일부 스타일 미적용 이슈 발생
+- 렌더링 안정성이 높은 Recharts로 전환하여 크로스 브라우징 문제 해결
+- 상세 분석: https://velog.io/@hojin535/react-chart-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC
+
+### 2. TanStack Query 중심 데이터 관리 구조 설계
+- 서버 상태 일원화 및 캐싱 전략(staleTime, gcTime) 적용
+- API 호출 횟수 **7회 → 2회 (약 71.4% 감소)**
+- API 응답 시간 **156ms → 114ms (약 27% 단축)**
+- 구조 설계 상세: https://velog.io/@hojin535/TanStack-Query%EB%A1%9C-API-%ED%98%B8%EC%B6%9C-71-%EA%B0%9C%EC%84%A0%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0
+
+### 3. 앱-웹 간 통신 최적화
 
 **문제**: React Native 앱과 WebView 간 원활한 데이터 통신 필요
 
@@ -102,37 +127,5 @@ JSON.stringify({ module, data })
 
 ```
 
-
-
 **성과**:
-
-- 앱과 웹 간 끊김 없는 사용자 경험 제공
-
 - 네비게이션 및 데이터 동기화 안정성 확보
-
-
-### 2. 상태 관리 전략
-
-**문제**: 서버 상태, 클라이언트 전역 상태, 로컬 상태가 혼재되어 복잡도 증가
-
-
-
-**해결 방안**:
-
-- **서버 상태**: TanStack Query로 일괄 관리 (캐싱, refetching, 낙관적 업데이트)
-
-- **클라이언트 전역 상태**: Jotai의 Atomic 패턴으로 필요한 상태만 구독
-
-- **로컬 상태**: 컴포넌트 내 useState로 관리
-
-- Custom Hooks 패턴으로 비즈니스 로직 분리 (`useUserInfo`, `useWeeklyGoal`, `useGacha` 등)
-
-
-
-**성과**:
-
-- 명확한 상태 관리 계층 구조 확립
-
-- 불필요한 리렌더링 최소화로 성능 개선
-
-- 코드 가독성 및 유지보수성 향상
